@@ -196,6 +196,15 @@ public static partial class CharacterCreation
         return null;
     }
 
+    private static void CreateStarterMount(Mobile newChar)
+    {
+        var horse = new RidablePackHorse();
+
+        horse.Controlled = true;
+        horse.ControlMaster = newChar;
+        horse.Rider = newChar;
+    }
+
     [OnEvent(nameof(CharacterCreatedEvent))]
     private static void OnCharacterCreated(CharacterCreatedEventArgs args)
     {
@@ -229,6 +238,8 @@ public static partial class CharacterCreation
 
         SetName(newChar, args.Name);
         newChar.AddBackpack();
+
+        CreateStarterMount(newChar);
 
         if (newChar.AccessLevel == AccessLevel.Player)
         {
