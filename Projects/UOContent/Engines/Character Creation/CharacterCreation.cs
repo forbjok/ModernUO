@@ -173,7 +173,7 @@ public static partial class CharacterCreation
         }
 
         m.PackItem(new RedBook("a book", m.Name, 20, true));
-        m.PackItem(new Gold(1000)); // Starting gold can be customized here
+        m.PackItem(new Gold(10000)); // Starting gold can be customized here
         m.PackItem(new Dagger());
         m.PackItem(new Candle());
     }
