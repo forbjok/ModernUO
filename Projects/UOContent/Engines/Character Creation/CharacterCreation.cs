@@ -173,7 +173,7 @@ public static partial class CharacterCreation
         }
 
         m.PackItem(new RedBook("a book", m.Name, 20, true));
-        m.PackItem(new Gold(10000)); // Starting gold can be customized here
+        m.PackItem(new Gold(1000)); // Starting gold can be customized here
         m.PackItem(new Dagger());
         m.PackItem(new Candle());
     }
@@ -194,6 +194,11 @@ public static partial class CharacterCreation
         }
 
         return null;
+    }
+
+    private static void AddStartingItems(this Mobile m)
+    {
+        m.BankBox.DropItem(new Gold(10000));
     }
 
     private static void AddStartingMount(this Mobile m)
@@ -241,6 +246,7 @@ public static partial class CharacterCreation
         SetName(newChar, args.Name);
         newChar.AddBackpack();
 
+        newChar.AddStartingItems();
         newChar.AddStartingMount();
 
         if (newChar.AccessLevel == AccessLevel.Player)
