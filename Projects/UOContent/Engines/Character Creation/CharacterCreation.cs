@@ -196,13 +196,15 @@ public static partial class CharacterCreation
         return null;
     }
 
-    private static void CreateStarterMount(Mobile newChar)
+    private static void AddStartingMount(this Mobile m)
     {
-        var horse = new RidablePackHorse();
+        var mount = new RidablePackHorse();
 
-        horse.Controlled = true;
-        horse.ControlMaster = newChar;
-        horse.Rider = newChar;
+        mount.Controlled = true;
+        mount.ControlMaster = m;
+        mount.IsBonded = true;
+        mount.BondingBegin = DateTime.UtcNow;
+        mount.Rider = m;
     }
 
     [OnEvent(nameof(CharacterCreatedEvent))]
@@ -239,7 +241,7 @@ public static partial class CharacterCreation
         SetName(newChar, args.Name);
         newChar.AddBackpack();
 
-        CreateStarterMount(newChar);
+        newChar.AddStartingMount();
 
         if (newChar.AccessLevel == AccessLevel.Player)
         {
