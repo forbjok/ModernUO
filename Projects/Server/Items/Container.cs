@@ -174,9 +174,9 @@ public partial class Container : Item
         }
     }
 
-    public static int GlobalMaxItems { get; set; } = 125;
+    public static int GlobalMaxItems { get; set; } = 400;
 
-    public static int GlobalMaxWeight { get; set; } = 400;
+    public static int GlobalMaxWeight { get; set; } = int.MaxValue;
 
     public virtual bool DisplaysContent => true;
 
