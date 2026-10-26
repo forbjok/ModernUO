@@ -198,7 +198,11 @@ public static partial class CharacterCreation
 
     private static void AddStartingItems(this Mobile m)
     {
-        m.BankBox.DropItem(new BankCheck(10000));
+        var bag = new Bag();
+        bag.Name = "Starter Bag";
+        bag.DropItem(new BankCheck(10000));
+
+        m.BankBox.DropItem(bag);
     }
 
     private static void AddStartingMount(this Mobile m)
