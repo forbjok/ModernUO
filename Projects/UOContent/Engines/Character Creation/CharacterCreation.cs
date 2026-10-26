@@ -198,7 +198,7 @@ public static partial class CharacterCreation
 
     private static void AddStartingItems(this Mobile m)
     {
-        m.BankBox.DropItem(new Gold(10000));
+        m.BankBox.DropItem(new BankCheck(10000));
     }
 
     private static void AddStartingMount(this Mobile m)
