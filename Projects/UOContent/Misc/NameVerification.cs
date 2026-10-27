@@ -45,7 +45,6 @@ public static class NameVerification
 
     public static readonly string[] Disallowed =
     [
-        ..ProfanityProtection.Disallowed,
         "tailor",
         "smith",
         "scholar",
